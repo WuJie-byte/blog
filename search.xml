@@ -17,31 +17,6 @@
     
     
     <entry>
-      <title>java集合</title>
-      <link href="/blog/2022/07/27/java/collection/"/>
-      <url>/blog/2022/07/27/java/collection/</url>
-      
-        <content type="html"><![CDATA[<h1 id="集合类图"><a href="#集合类图" class="headerlink" title="集合类图"></a>集合类图</h1><h2 id="collection"><a href="#collection" class="headerlink" title="collection"></a>collection</h2><img src="/blog/2022/07/27/java/collection/collection.png" class=""><h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><img src="/blog/2022/07/27/java/collection/map.png" class=""><h2 id="增强-for-底层是迭代器"><a href="#增强-for-底层是迭代器" class="headerlink" title="增强 for 底层是迭代器"></a>增强 for 底层是迭代器</h2><blockquote><p>简化版的迭代器</p></blockquote><h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><ul><li>元素可重复，有序</li><li>支持索引</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> JavaSE </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 集合 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>JavaSE</title>
       <link href="/blog/2022/07/27/java/JavaSE/"/>
       <url>/blog/2022/07/27/java/JavaSE/</url>
@@ -59,6 +34,31 @@
         <tags>
             
             <tag> Java基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>java集合</title>
+      <link href="/blog/2022/07/27/java/collection/"/>
+      <url>/blog/2022/07/27/java/collection/</url>
+      
+        <content type="html"><![CDATA[<h1 id="集合类图"><a href="#集合类图" class="headerlink" title="集合类图"></a>集合类图</h1><h2 id="collection"><a href="#collection" class="headerlink" title="collection"></a>collection</h2><img src="/blog/2022/07/27/java/collection/collection.png" class=""><h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><img src="/blog/2022/07/27/java/collection/map.png" class=""><h2 id="增强-for-底层是迭代器"><a href="#增强-for-底层是迭代器" class="headerlink" title="增强 for 底层是迭代器"></a>增强 for 底层是迭代器</h2><blockquote><p>简化版的迭代器</p></blockquote><h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><ul><li>元素可重复，有序</li><li>支持索引</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaSE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 集合 </tag>
             
         </tags>
       
@@ -152,6 +152,25 @@
     
     
     <entry>
+      <title>牛客刷题</title>
+      <link href="/blog/2022/07/04/java/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98/"/>
+      <url>/blog/2022/07/04/java/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h1><p><strong>四种引用类型</strong></p><p>JDK1.2 之前，一个对象只有“已被引用”和”未被引用”两种状态，这将无法描述某些特殊情况下的对象，比如，当内存充足时需要保留，而内存紧张时才需要被抛弃的一类对象。</p><p>所以在 JDK.1.2 之后，Java 对引用的概念进行了扩充，将引用分为了：强引用（Strong Reference）、软引用（Soft Reference）、弱引用（Weak Reference）、虚引用（Phantom Reference）4 种，这 4 种引用的强度依次减弱。</p><h2 id="一，强引用"><a href="#一，强引用" class="headerlink" title="一，强引用"></a><strong>一，强引用</strong></h2><p>Object obj &#x3D; new Object(); &#x2F;&#x2F;只要obj还指向Object对象，Object对象就不会被回收 obj &#x3D; null; &#x2F;&#x2F;手动置null</p><p>只要强引用存在，垃圾回收器将永远不会回收被引用的对象，哪怕内存不足时，JVM也会直接抛出OutOfMemoryError，不会去回收。如果想中断强引用与对象之间的联系，可以显示的将强引用赋值为null，这样一来，JVM就可以适时的回收对象了</p><h2 id="二，软引用"><a href="#二，软引用" class="headerlink" title="二，软引用"></a><strong>二，软引用</strong></h2><p>软引用是用来描述一些非必需但仍有用的对象。<strong>在内存足够的时候，软引用对象不会被回收，只有在内存不足时，系统则会回收软引用对象，如果回收了软引用对象之后仍然没有足够的内存，才会抛出内存溢出异常</strong>。这种特性常常被用来实现缓存技术，比如网页缓存，图片缓存等。</p><p>在 JDK1.2 之后，用java.lang.ref.SoftReference类来表示软引用。</p><h2 id="三，弱引用"><a href="#三，弱引用" class="headerlink" title="三，弱引用"></a><strong>三，弱引用</strong></h2><p>弱引用的引用强度比软引用要更弱一些，<strong>无论内存是否足够，只要 JVM 开始进行垃圾回收，那些被弱引用关联的对象都会被回收</strong>。在 JDK1.2 之后，用 java.lang.ref.WeakReference 来表示弱引用。</p><h2 id="四，虚引用"><a href="#四，虚引用" class="headerlink" title="四，虚引用"></a><strong>四，虚引用</strong></h2><p>虚引用是最弱的一种引用关系，如果一个对象仅持有虚引用，那么它就和没有任何引用一样，它随时可能会被回收，在 JDK1.2 之后，用 PhantomReference 类来表示，通过查看这个类的源码，发现它只有一个构造函数和一个 get() 方法，而且它的 get() 方法仅仅是返回一个null，也就是说将永远无法通过虚引用来获取对象，虚引用必须要和 ReferenceQueue 引用队列一起使用。</p><h1 id="java-daemon线程"><a href="#java-daemon线程" class="headerlink" title="java daemon线程"></a>java daemon线程</h1><p>java线程是一个运用很广泛的重点知识,我们很有必要了解java的daemon线程.</p><p>1.首先我们必须清楚的认识到java的线程分为两类: 用户线程和daemon线程</p><p>A.　　用户线程: 用户线程可以简单的理解为用户定义的线程,当然包括main线程(以前我错误的认为main线程也是一个daemon线程,但是慢慢的发现原来main线程不是,因为如果我再main线程中创建一个用户线程,并且打出日志,我们会发现这样一个问题,main线程运行结束了,但是我们的线程任然在运行).</p><p>B.　　daemon线程: daemon线程是为我们创建的用户线程提供服务的线程,比如说jvm的GC等等,这样的线程有一个非常明显的特征: 当用户线程运行结束的时候,daemon线程将会自动退出.(由此我们可以推出下面关于daemon线程的几条基本特点)</p><p>2.　daemon 线程的特点: </p><p>A.　　守护线程创建的过程中需要先调用setDaemon方法进行设置,然后再启动线程.否则会报出IllegalThreadStateException异常.(个人在想一个问题,为什么不能动态更改线程为daemon线程?有时间一个补上这个内容,现在给出一个猜测: 是因为jvm判断线程状态的时候,如果当前只存在一个线程Thread1,如果我们把这个线程动态更改为daemon线程,jvm会认为当前已经不存在用户线程而退出,稍后将会给出正确结论,抱歉!如果有哪位大牛看到,希望给出指点,谢谢!)</p><p>B.　　由于daemon线程的终止条件是当前是否存在用户线程,所以我们不能指派daemon线程来进行一些业务操作,而只能服务用户线程.</p><p>C.　　daemon线程创建的子线程任然是daemon线程.</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java并发编程实战</title>
       <link href="/blog/2022/07/04/bookNote/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/"/>
       <url>/blog/2022/07/04/bookNote/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/</url>
@@ -171,17 +190,56 @@
     
     
     <entry>
-      <title>牛客刷题</title>
-      <link href="/blog/2022/07/04/java/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98/"/>
-      <url>/blog/2022/07/04/java/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98/</url>
+      <title>长度最小的子数组</title>
+      <link href="/blog/2022/07/04/%E7%AE%97%E6%B3%95/1.%E6%95%B0%E7%BB%84/%E5%8F%8C%E6%8C%87%E9%92%88%E6%B3%95%EF%BC%88%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88%E6%B3%95%EF%BC%89/"/>
+      <url>/blog/2022/07/04/%E7%AE%97%E6%B3%95/1.%E6%95%B0%E7%BB%84/%E5%8F%8C%E6%8C%87%E9%92%88%E6%B3%95%EF%BC%88%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88%E6%B3%95%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<h1 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h1><p><strong>四种引用类型</strong></p><p>JDK1.2 之前，一个对象只有“已被引用”和”未被引用”两种状态，这将无法描述某些特殊情况下的对象，比如，当内存充足时需要保留，而内存紧张时才需要被抛弃的一类对象。</p><p>所以在 JDK.1.2 之后，Java 对引用的概念进行了扩充，将引用分为了：强引用（Strong Reference）、软引用（Soft Reference）、弱引用（Weak Reference）、虚引用（Phantom Reference）4 种，这 4 种引用的强度依次减弱。</p><h2 id="一，强引用"><a href="#一，强引用" class="headerlink" title="一，强引用"></a><strong>一，强引用</strong></h2><p>Object obj &#x3D; new Object(); &#x2F;&#x2F;只要obj还指向Object对象，Object对象就不会被回收 obj &#x3D; null; &#x2F;&#x2F;手动置null</p><p>只要强引用存在，垃圾回收器将永远不会回收被引用的对象，哪怕内存不足时，JVM也会直接抛出OutOfMemoryError，不会去回收。如果想中断强引用与对象之间的联系，可以显示的将强引用赋值为null，这样一来，JVM就可以适时的回收对象了</p><h2 id="二，软引用"><a href="#二，软引用" class="headerlink" title="二，软引用"></a><strong>二，软引用</strong></h2><p>软引用是用来描述一些非必需但仍有用的对象。<strong>在内存足够的时候，软引用对象不会被回收，只有在内存不足时，系统则会回收软引用对象，如果回收了软引用对象之后仍然没有足够的内存，才会抛出内存溢出异常</strong>。这种特性常常被用来实现缓存技术，比如网页缓存，图片缓存等。</p><p>在 JDK1.2 之后，用java.lang.ref.SoftReference类来表示软引用。</p><h2 id="三，弱引用"><a href="#三，弱引用" class="headerlink" title="三，弱引用"></a><strong>三，弱引用</strong></h2><p>弱引用的引用强度比软引用要更弱一些，<strong>无论内存是否足够，只要 JVM 开始进行垃圾回收，那些被弱引用关联的对象都会被回收</strong>。在 JDK1.2 之后，用 java.lang.ref.WeakReference 来表示弱引用。</p><h2 id="四，虚引用"><a href="#四，虚引用" class="headerlink" title="四，虚引用"></a><strong>四，虚引用</strong></h2><p>虚引用是最弱的一种引用关系，如果一个对象仅持有虚引用，那么它就和没有任何引用一样，它随时可能会被回收，在 JDK1.2 之后，用 PhantomReference 类来表示，通过查看这个类的源码，发现它只有一个构造函数和一个 get() 方法，而且它的 get() 方法仅仅是返回一个null，也就是说将永远无法通过虚引用来获取对象，虚引用必须要和 ReferenceQueue 引用队列一起使用。</p><h1 id="java-daemon线程"><a href="#java-daemon线程" class="headerlink" title="java daemon线程"></a>java daemon线程</h1><p>java线程是一个运用很广泛的重点知识,我们很有必要了解java的daemon线程.</p><p>1.首先我们必须清楚的认识到java的线程分为两类: 用户线程和daemon线程</p><p>A.　　用户线程: 用户线程可以简单的理解为用户定义的线程,当然包括main线程(以前我错误的认为main线程也是一个daemon线程,但是慢慢的发现原来main线程不是,因为如果我再main线程中创建一个用户线程,并且打出日志,我们会发现这样一个问题,main线程运行结束了,但是我们的线程任然在运行).</p><p>B.　　daemon线程: daemon线程是为我们创建的用户线程提供服务的线程,比如说jvm的GC等等,这样的线程有一个非常明显的特征: 当用户线程运行结束的时候,daemon线程将会自动退出.(由此我们可以推出下面关于daemon线程的几条基本特点)</p><p>2.　daemon 线程的特点: </p><p>A.　　守护线程创建的过程中需要先调用setDaemon方法进行设置,然后再启动线程.否则会报出IllegalThreadStateException异常.(个人在想一个问题,为什么不能动态更改线程为daemon线程?有时间一个补上这个内容,现在给出一个猜测: 是因为jvm判断线程状态的时候,如果当前只存在一个线程Thread1,如果我们把这个线程动态更改为daemon线程,jvm会认为当前已经不存在用户线程而退出,稍后将会给出正确结论,抱歉!如果有哪位大牛看到,希望给出指点,谢谢!)</p><p>B.　　由于daemon线程的终止条件是当前是否存在用户线程,所以我们不能指派daemon线程来进行一些业务操作,而只能服务用户线程.</p><p>C.　　daemon线程创建的子线程任然是daemon线程.</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="双指针法（快慢指针法）"><a href="#双指针法（快慢指针法）" class="headerlink" title="双指针法（快慢指针法）"></a>双指针法（快慢指针法）</h1><blockquote><p>通过一个快指针和慢指针在一个for循环下完成两个for循环的工作。</p></blockquote><p>数组：<a href="https://leetcode.cn/problems/remove-element/submissions/">就移除个元素很难么？(力扣)</a></p><p>双指针法（快慢指针法）：通过一个快指针和慢指针在一个for循环下完成两个for循环的工作。</p><ul><li><p>暴力解法时间复杂度：O(n^2)</p></li><li><p>双指针时间复杂度：O(n)<br>这道题目迷惑了不少同学，纠结于数组中的元素为什么不能删除，主要是因为以下两点：</p></li><li><p>数组在内存中是连续的地址空间，不能释放单一元素，如果要释放，就是全释放（程序运行结束，回收内存栈空间）。</p></li><li><p>C++中vector和array的区别一定要弄清楚，vector的底层实现是array，封装后使用更友好。<br>双指针法（快慢指针法）在数组和链表的操作中是非常常见的，很多考察数组和链表操作的面试题，都使用双指针法</p></li></ul>]]></content>
       
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 数组 </category>
+          
+      </categories>
       
       
         <tags>
             
-            <tag> docker </tag>
+            <tag> 算法 </tag>
+            
+            <tag> 数组 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>搜索插入位置</title>
+      <link href="/blog/2022/07/04/%E7%AE%97%E6%B3%95/1.%E6%95%B0%E7%BB%84/%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/"/>
+      <url>/blog/2022/07/04/%E7%AE%97%E6%B3%95/1.%E6%95%B0%E7%BB%84/%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.cn/problems/search-insert-position/">力扣链接</a></p><p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p><p>你可以假设数组中无重复元素。</p><p>示例 1:</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,3,5,6], 5</span><br><span class="line">输出: 2</span><br></pre></td></tr></table></figure><p>示例 2:</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,3,5,6], 2</span><br><span class="line">输出: 1</span><br></pre></td></tr></table></figure><p>示例 3:</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,3,5,6], 7</span><br><span class="line">输出: 4</span><br></pre></td></tr></table></figure><p>示例 4:</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,3,5,6], 0</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote><p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。</p></blockquote><p>这个和二分查找是一样的</p><blockquote><p>如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p></blockquote><p>分两种情况</p><ol><li>大于最大的值或小于最小的值，直接插入头或尾</li><li>要插入数组中部，当left &#x3D; right时，判断插入元素和当前位置值的大小，插入元素小则插入点为当前位置，插入元素大则插入点为当前位置的下一个位置。</li></ol><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">searchInsert</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="comment">// 判断在不在数组中</span></span><br><span class="line">        <span class="keyword">if</span> (target &lt; nums[<span class="number">0</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; nums[nums.length - <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> nums.length;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> nums.length - <span class="number">1</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(left &lt;= right) &#123;</span><br><span class="line">                mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">                    left = ++mid;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">                    right = --mid;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> mid;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (target &gt; nums[mid]) &#123;</span><br><span class="line">                <span class="keyword">return</span> ++mid;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 数组 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -224,93 +282,6 @@
       <url>/blog/2022/07/04/%E7%AE%97%E6%B3%95/1.%E6%95%B0%E7%BB%84/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9/</url>
       
         <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.cn/problems/squares-of-a-sorted-array/">力扣链接</a></p><p>给你一个按 非递减顺序 排序的整数数组 nums，返回 每个数字的平方 组成的新数组，要求也按 非递减顺序 排序。</p><p>示例 1：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [-4,-1,0,3,10]</span><br><span class="line">输出：[0,1,9,16,100]</span><br><span class="line">解释：平方后，数组变为 [16,1,0,9,100]</span><br><span class="line">排序后，数组变为 [0,1,9,16,100]</span><br></pre></td></tr></table></figure><p>示例 2：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [-7,-3,2,3,11]</span><br><span class="line">输出：[4,9,9,49,121]</span><br></pre></td></tr></table></figure><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote><p>使用3个指针进行操作</p></blockquote><ol><li>一头一尾指向原始数组</li><li>第三个指向新数组的尾部</li><li>头尾指针比较值的大小，大的向中间移动，大的值放入新数组，从后向前填充数据</li><li>当两个指针相遇时，是最后一次比较</li></ol><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] sortedSquares(<span class="type">int</span>[] nums) &#123;</span><br><span class="line">        <span class="type">int</span>[] result = <span class="keyword">new</span> <span class="title class_">int</span>[nums.length];</span><br><span class="line">        <span class="type">int</span> <span class="variable">head</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">end</span> <span class="operator">=</span> nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">resultIndex</span> <span class="operator">=</span> nums.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(head &lt;= end) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[head] * nums[head] &gt; nums[end] * nums[end]) &#123;</span><br><span class="line">               result[resultIndex--] = nums[head] * nums[head];</span><br><span class="line">               head++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                result[resultIndex--] = nums[end] * nums[end];</span><br><span class="line">                end--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法 </category>
-          
-          <category> 数组 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 算法 </tag>
-            
-            <tag> 数组 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>长度最小的子数组</title>
-      <link href="/blog/2022/07/04/%E7%AE%97%E6%B3%95/1.%E6%95%B0%E7%BB%84/%E5%8F%8C%E6%8C%87%E9%92%88%E6%B3%95%EF%BC%88%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88%E6%B3%95%EF%BC%89/"/>
-      <url>/blog/2022/07/04/%E7%AE%97%E6%B3%95/1.%E6%95%B0%E7%BB%84/%E5%8F%8C%E6%8C%87%E9%92%88%E6%B3%95%EF%BC%88%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88%E6%B3%95%EF%BC%89/</url>
-      
-        <content type="html"><![CDATA[<h1 id="双指针法（快慢指针法）"><a href="#双指针法（快慢指针法）" class="headerlink" title="双指针法（快慢指针法）"></a>双指针法（快慢指针法）</h1><blockquote><p>通过一个快指针和慢指针在一个for循环下完成两个for循环的工作。</p></blockquote><p>数组：<a href="https://leetcode.cn/problems/remove-element/submissions/">就移除个元素很难么？(力扣)</a></p><p>双指针法（快慢指针法）：通过一个快指针和慢指针在一个for循环下完成两个for循环的工作。</p><ul><li><p>暴力解法时间复杂度：O(n^2)</p></li><li><p>双指针时间复杂度：O(n)<br>这道题目迷惑了不少同学，纠结于数组中的元素为什么不能删除，主要是因为以下两点：</p></li><li><p>数组在内存中是连续的地址空间，不能释放单一元素，如果要释放，就是全释放（程序运行结束，回收内存栈空间）。</p></li><li><p>C++中vector和array的区别一定要弄清楚，vector的底层实现是array，封装后使用更友好。<br>双指针法（快慢指针法）在数组和链表的操作中是非常常见的，很多考察数组和链表操作的面试题，都使用双指针法</p></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法 </category>
-          
-          <category> 数组 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 算法 </tag>
-            
-            <tag> 数组 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>移除元素</title>
-      <link href="/blog/2022/07/04/%E7%AE%97%E6%B3%95/1.%E6%95%B0%E7%BB%84/%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/"/>
-      <url>/blog/2022/07/04/%E7%AE%97%E6%B3%95/1.%E6%95%B0%E7%BB%84/%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</url>
-      
-        <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.cn/problems/remove-element/">力扣链接</a></p><p>给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。</p><p>不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。</p><p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p><p>说明:</p><p>为什么返回数值是整数，但输出的答案是数组呢?</p><p>请注意，输入数组是以「引用」方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p><p>你可以想象内部操作如下:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// nums 是以“引用”方式传递的。也就是说，不对实参作任何拷贝</span></span><br><span class="line"><span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> removeElement(nums, val);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在函数里修改输入数组对于调用者是可见的。</span></span><br><span class="line"><span class="comment">// 根据你的函数返回的长度, 它会打印出数组中 该长度范围内 的所有元素。</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    print(nums[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>示例 1：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [3,2,2,3], val = 3</span><br><span class="line">输出：2, nums = [2,2]</span><br><span class="line">解释：函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。你不需要考虑数组中超出新长度后面的元素。例如，函数返回的新长度为 2 ，而 nums = [2,2,3,3] 或 nums = [2,2,0,0]，也会被视作正确答案。</span><br></pre></td></tr></table></figure><p>示例 2：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [0,1,2,2,3,0,4,2], val = 2</span><br><span class="line">输出：5, nums = [0,1,4,0,3]</span><br><span class="line">解释：函数应该返回新的长度 5, 并且 nums 中的前五个元素为 0, 1, 3, 0, 4。注意这五个元素可为任意顺序。你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>因为最终的结果剩余的数都在前面一部分，所以移除一个元素之后，就需要将后面的数放到该位置上来。这样最终的结果才是剩余的元素在前面一部分。<br><strong>最容易想到的方案是</strong>：移除一个元素之后就将后面的元素往前移一位，然后从当前位置继续往下判断是否需要移除。但是这个方案不好，因为每次移除元素之后都要将后面的元素移动一次，太浪费时间了。<br>另一种<strong>更好的方案</strong>是：移除一个元素之后，将最后一个位置的数据放到当前位置，第二次移除时，将倒数第二个元素放到当前位置。最终移除完毕时，前面一部分是剩余的元素。</p><h1 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">removeElement</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> val)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> nums.length - <span class="number">1</span>;<span class="comment">// 记录需要移动到前面的元素索引</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == index) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] == val) &#123;</span><br><span class="line">                    <span class="keyword">return</span> i;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (nums[i] == val) &#123;</span><br><span class="line">                <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == index) &#123;</span><br><span class="line">                    <span class="keyword">return</span> i;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 将尾部的元素移动到当前位置</span></span><br><span class="line">                <span class="comment">// 移动之前先判断尾部元素是否也等于 val</span></span><br><span class="line">                <span class="keyword">if</span> (nums[index] == val) &#123;</span><br><span class="line">                    index--;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    nums[i] = nums[index];</span><br><span class="line">                    index--;</span><br><span class="line">                    <span class="keyword">if</span> (i == index) &#123;</span><br><span class="line">                        <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="更优解"><a href="#更优解" class="headerlink" title="更优解"></a>更优解</h1><h2 id="使用快慢指针"><a href="#使用快慢指针" class="headerlink" title="使用快慢指针"></a>使用快慢指针</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法 </category>
-          
-          <category> 数组 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 算法 </tag>
-            
-            <tag> 数组 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>搜索插入位置</title>
-      <link href="/blog/2022/07/04/%E7%AE%97%E6%B3%95/1.%E6%95%B0%E7%BB%84/%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/"/>
-      <url>/blog/2022/07/04/%E7%AE%97%E6%B3%95/1.%E6%95%B0%E7%BB%84/%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/</url>
-      
-        <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.cn/problems/search-insert-position/">力扣链接</a></p><p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p><p>你可以假设数组中无重复元素。</p><p>示例 1:</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,3,5,6], 5</span><br><span class="line">输出: 2</span><br></pre></td></tr></table></figure><p>示例 2:</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,3,5,6], 2</span><br><span class="line">输出: 1</span><br></pre></td></tr></table></figure><p>示例 3:</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,3,5,6], 7</span><br><span class="line">输出: 4</span><br></pre></td></tr></table></figure><p>示例 4:</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,3,5,6], 0</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote><p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。</p></blockquote><p>这个和二分查找是一样的</p><blockquote><p>如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p></blockquote><p>分两种情况</p><ol><li>大于最大的值或小于最小的值，直接插入头或尾</li><li>要插入数组中部，当left &#x3D; right时，判断插入元素和当前位置值的大小，插入元素小则插入点为当前位置，插入元素大则插入点为当前位置的下一个位置。</li></ol><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">searchInsert</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="comment">// 判断在不在数组中</span></span><br><span class="line">        <span class="keyword">if</span> (target &lt; nums[<span class="number">0</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; nums[nums.length - <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> nums.length;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> nums.length - <span class="number">1</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(left &lt;= right) &#123;</span><br><span class="line">                mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">                    left = ++mid;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">                    right = --mid;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> mid;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (target &gt; nums[mid]) &#123;</span><br><span class="line">                <span class="keyword">return</span> ++mid;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -393,18 +364,18 @@
     
     
     <entry>
-      <title>移除链表元素</title>
-      <link href="/blog/2022/07/04/%E7%AE%97%E6%B3%95/2.%E9%93%BE%E8%A1%A8/%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0/"/>
-      <url>/blog/2022/07/04/%E7%AE%97%E6%B3%95/2.%E9%93%BE%E8%A1%A8/%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0/</url>
+      <title>移除元素</title>
+      <link href="/blog/2022/07/04/%E7%AE%97%E6%B3%95/1.%E6%95%B0%E7%BB%84/%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/"/>
+      <url>/blog/2022/07/04/%E7%AE%97%E6%B3%95/1.%E6%95%B0%E7%BB%84/%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</url>
       
-        <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.cn/problems/remove-linked-list-elements/">力扣链接</a></p><p>给你一个链表的头节点 head 和一个整数 val ，请你删除链表中所有满足 Node.val &#x3D;&#x3D; val 的节点，并返回 新的头节点 。</p><p>示例 1：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [1,2,6,3,4,5,6], val = 6</span><br><span class="line">输出：[1,2,3,4,5]</span><br></pre></td></tr></table></figure><p>示例 2：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [], val = 1</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure><p>示例 3：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [7,7,7,7], val = 7</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote><p>第一个结点前添加一个结点，方便删除第一个结点<br>用一个指针指向需要判断是否删除的结点前，如果需要删除，则删除，指针不移动，如果不需要删除，则指针向后移动。直到移动到最后一个结点。</p></blockquote><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">removeElements</span><span class="params">(ListNode head, <span class="type">int</span> val)</span> &#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">preHead</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">0</span>, head);</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p</span> <span class="operator">=</span> preHead;</span><br><span class="line">        <span class="keyword">while</span> (p.next != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p.next.val == val) &#123;</span><br><span class="line">                p.next = p.next.next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                p = p.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> preHead.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.cn/problems/remove-element/">力扣链接</a></p><p>给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。</p><p>不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。</p><p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p><p>说明:</p><p>为什么返回数值是整数，但输出的答案是数组呢?</p><p>请注意，输入数组是以「引用」方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p><p>你可以想象内部操作如下:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// nums 是以“引用”方式传递的。也就是说，不对实参作任何拷贝</span></span><br><span class="line"><span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> removeElement(nums, val);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在函数里修改输入数组对于调用者是可见的。</span></span><br><span class="line"><span class="comment">// 根据你的函数返回的长度, 它会打印出数组中 该长度范围内 的所有元素。</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    print(nums[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>示例 1：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [3,2,2,3], val = 3</span><br><span class="line">输出：2, nums = [2,2]</span><br><span class="line">解释：函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。你不需要考虑数组中超出新长度后面的元素。例如，函数返回的新长度为 2 ，而 nums = [2,2,3,3] 或 nums = [2,2,0,0]，也会被视作正确答案。</span><br></pre></td></tr></table></figure><p>示例 2：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [0,1,2,2,3,0,4,2], val = 2</span><br><span class="line">输出：5, nums = [0,1,4,0,3]</span><br><span class="line">解释：函数应该返回新的长度 5, 并且 nums 中的前五个元素为 0, 1, 3, 0, 4。注意这五个元素可为任意顺序。你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>因为最终的结果剩余的数都在前面一部分，所以移除一个元素之后，就需要将后面的数放到该位置上来。这样最终的结果才是剩余的元素在前面一部分。<br><strong>最容易想到的方案是</strong>：移除一个元素之后就将后面的元素往前移一位，然后从当前位置继续往下判断是否需要移除。但是这个方案不好，因为每次移除元素之后都要将后面的元素移动一次，太浪费时间了。<br>另一种<strong>更好的方案</strong>是：移除一个元素之后，将最后一个位置的数据放到当前位置，第二次移除时，将倒数第二个元素放到当前位置。最终移除完毕时，前面一部分是剩余的元素。</p><h1 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">removeElement</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> val)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> nums.length - <span class="number">1</span>;<span class="comment">// 记录需要移动到前面的元素索引</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == index) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] == val) &#123;</span><br><span class="line">                    <span class="keyword">return</span> i;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (nums[i] == val) &#123;</span><br><span class="line">                <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == index) &#123;</span><br><span class="line">                    <span class="keyword">return</span> i;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 将尾部的元素移动到当前位置</span></span><br><span class="line">                <span class="comment">// 移动之前先判断尾部元素是否也等于 val</span></span><br><span class="line">                <span class="keyword">if</span> (nums[index] == val) &#123;</span><br><span class="line">                    index--;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    nums[i] = nums[index];</span><br><span class="line">                    index--;</span><br><span class="line">                    <span class="keyword">if</span> (i == index) &#123;</span><br><span class="line">                        <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="更优解"><a href="#更优解" class="headerlink" title="更优解"></a>更优解</h1><h2 id="使用快慢指针"><a href="#使用快慢指针" class="headerlink" title="使用快慢指针"></a>使用快慢指针</h2>]]></content>
       
       
       <categories>
           
           <category> 算法 </category>
           
-          <category> 链表 </category>
+          <category> 数组 </category>
           
       </categories>
       
@@ -413,7 +384,7 @@
             
             <tag> 算法 </tag>
             
-            <tag> 链表 </tag>
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -449,6 +420,35 @@
     
     
     <entry>
+      <title>移除链表元素</title>
+      <link href="/blog/2022/07/04/%E7%AE%97%E6%B3%95/2.%E9%93%BE%E8%A1%A8/%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0/"/>
+      <url>/blog/2022/07/04/%E7%AE%97%E6%B3%95/2.%E9%93%BE%E8%A1%A8/%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.cn/problems/remove-linked-list-elements/">力扣链接</a></p><p>给你一个链表的头节点 head 和一个整数 val ，请你删除链表中所有满足 Node.val &#x3D;&#x3D; val 的节点，并返回 新的头节点 。</p><p>示例 1：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [1,2,6,3,4,5,6], val = 6</span><br><span class="line">输出：[1,2,3,4,5]</span><br></pre></td></tr></table></figure><p>示例 2：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [], val = 1</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure><p>示例 3：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [7,7,7,7], val = 7</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote><p>第一个结点前添加一个结点，方便删除第一个结点<br>用一个指针指向需要判断是否删除的结点前，如果需要删除，则删除，指针不移动，如果不需要删除，则指针向后移动。直到移动到最后一个结点。</p></blockquote><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">removeElements</span><span class="params">(ListNode head, <span class="type">int</span> val)</span> &#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">preHead</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">0</span>, head);</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p</span> <span class="operator">=</span> preHead;</span><br><span class="line">        <span class="keyword">while</span> (p.next != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p.next.val == val) &#123;</span><br><span class="line">                p.next = p.next.next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                p = p.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> preHead.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 链表 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Ubuntu 18.04开启SSH远程服务</title>
       <link href="/blog/2022/07/04/%E8%BF%90%E7%BB%B4/2.ubuntu/Ubuntu%2018.04%E5%BC%80%E5%90%AFSSH%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1/"/>
       <url>/blog/2022/07/04/%E8%BF%90%E7%BB%B4/2.ubuntu/Ubuntu%2018.04%E5%BC%80%E5%90%AFSSH%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1/</url>
@@ -470,6 +470,33 @@
             <tag> Ubuntu </tag>
             
             <tag> ssh </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu终端命令--查看端口占用及关闭</title>
+      <link href="/blog/2022/07/04/%E8%BF%90%E7%BB%B4/2.ubuntu/Ubuntu%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4--%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E5%8F%8A%E5%85%B3%E9%97%AD/"/>
+      <url>/blog/2022/07/04/%E8%BF%90%E7%BB%B4/2.ubuntu/Ubuntu%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4--%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E5%8F%8A%E5%85%B3%E9%97%AD/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1、查看已经连接的服务端口"><a href="#1、查看已经连接的服务端口" class="headerlink" title="1、查看已经连接的服务端口"></a>1、查看已经连接的服务端口</h3><p>ESTABLISHED</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -a</span><br></pre></td></tr></table></figure><h3 id="2、查看所有的服务端口"><a href="#2、查看所有的服务端口" class="headerlink" title="2、查看所有的服务端口"></a>2、查看所有的服务端口</h3><p>LISTEN，ESTABLISHED</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ap</span><br></pre></td></tr></table></figure><h3 id="3、查看指定端口"><a href="#3、查看指定端口" class="headerlink" title="3、查看指定端口"></a>3、查看指定端口</h3><p>可以结合 grep 命令：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ap | grep 8080</span><br></pre></td></tr></table></figure><p>也可以使用 lsof 命令：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:8888</span><br></pre></td></tr></table></figure><p><strong>(这个命令很好用)</strong></p><h3 id="4、关闭占用端口程序"><a href="#4、关闭占用端口程序" class="headerlink" title="4、关闭占用端口程序"></a>4、关闭占用端口程序</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shkill -9 PID号</span><br></pre></td></tr></table></figure><blockquote><p>Ps：kill 就是给某个进程 id 发送了一个信号。<br>默认发送的信号是 SIGTERM，而 kill -9 发送的信号是 SIGKILL，即 exit。<br>exit 信号不会被系统阻塞，所以 kill -9 能顺利杀掉进程。</p></blockquote><p>来源：<a href="https://blog.51cto.com/aiyc/2886117">https://blog.51cto.com/aiyc/2886117</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux命令 </tag>
+            
+            <tag> 关闭进程 </tag>
             
         </tags>
       
@@ -526,33 +553,6 @@
             <tag> ssh </tag>
             
             <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Ubuntu终端命令--查看端口占用及关闭</title>
-      <link href="/blog/2022/07/04/%E8%BF%90%E7%BB%B4/2.ubuntu/Ubuntu%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4--%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E5%8F%8A%E5%85%B3%E9%97%AD/"/>
-      <url>/blog/2022/07/04/%E8%BF%90%E7%BB%B4/2.ubuntu/Ubuntu%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4--%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E5%8F%8A%E5%85%B3%E9%97%AD/</url>
-      
-        <content type="html"><![CDATA[<h3 id="1、查看已经连接的服务端口"><a href="#1、查看已经连接的服务端口" class="headerlink" title="1、查看已经连接的服务端口"></a>1、查看已经连接的服务端口</h3><p>ESTABLISHED</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -a</span><br></pre></td></tr></table></figure><h3 id="2、查看所有的服务端口"><a href="#2、查看所有的服务端口" class="headerlink" title="2、查看所有的服务端口"></a>2、查看所有的服务端口</h3><p>LISTEN，ESTABLISHED</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ap</span><br></pre></td></tr></table></figure><h3 id="3、查看指定端口"><a href="#3、查看指定端口" class="headerlink" title="3、查看指定端口"></a>3、查看指定端口</h3><p>可以结合 grep 命令：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ap | grep 8080</span><br></pre></td></tr></table></figure><p>也可以使用 lsof 命令：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:8888</span><br></pre></td></tr></table></figure><p><strong>(这个命令很好用)</strong></p><h3 id="4、关闭占用端口程序"><a href="#4、关闭占用端口程序" class="headerlink" title="4、关闭占用端口程序"></a>4、关闭占用端口程序</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shkill -9 PID号</span><br></pre></td></tr></table></figure><blockquote><p>Ps：kill 就是给某个进程 id 发送了一个信号。<br>默认发送的信号是 SIGTERM，而 kill -9 发送的信号是 SIGKILL，即 exit。<br>exit 信号不会被系统阻塞，所以 kill -9 能顺利杀掉进程。</p></blockquote><p>来源：<a href="https://blog.51cto.com/aiyc/2886117">https://blog.51cto.com/aiyc/2886117</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 运维 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux命令 </tag>
-            
-            <tag> 关闭进程 </tag>
             
         </tags>
       
